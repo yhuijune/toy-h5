@@ -4,7 +4,7 @@
       v-for="tab in tabs"
       :key="tab.path"
       :class="['tab', $route.path === tab.path ? 'active-tab' : '']"
-      @click="to(tab.path)"
+      @click.stop="go(tab.path)"
     >
       <i :class="['iconfont', 'icon', tab.icon]" />
       <span class="title">{{ tab.title }}</span>
@@ -13,48 +13,32 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
 import { RouteRecordRaw } from 'vue-router'
-export default {
+
+export default defineComponent({
   name: 'BottomTabs',
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   data () {
     return {
       tabs: [
-        {
-          icon: 'icon-home',
-          title: '首页',
-          path: '/'
-        },
-        {
-          icon: 'icon-cake',
-          title: '蛋糕',
-          path: '/list'
-        },
-        {
-          icon: 'icon-bag',
-          title: '购物袋',
-          path: '/shoppingBag'
-        },
-        {
-          icon: 'icon-mine',
-          title: '我的',
-          path: '/mine'
-        }
+        { icon: 'icon-home', title: '首页', path: '/' },
+        { icon: 'icon-cake', title: '蛋糕', path: '/list' },
+        { icon: 'icon-bag', title: '购物袋', path: '/shoppingBag' },
+        { icon: 'icon-mine', title: '我的', path: '/mine' }
       ]
     }
   },
   methods: {
-    // 路由跳转
-    to (path: Pick<RouteRecordRaw, 'path'>): void {
+    // 跳转
+    go (path: Pick<RouteRecordRaw, 'path'>): void {
       this.$router.replace(path)
     }
   }
-}
+})
 </script>
 
 <style scoped lang="scss">
 @import "./src/assets/style/color.scss";
-
 #buttom-tabs-wrap {
   width: 100%;
   height: 100px;

@@ -5,14 +5,15 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue'
+export default defineComponent({
   name: 'Container',
   components: {},
   props: {},
   computed: {},
   watch: {},
   methods: {}
-}
+})
 </script>
 
 <style scoped lang="scss">
