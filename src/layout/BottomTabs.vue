@@ -42,9 +42,9 @@ export default defineComponent({
 #buttom-tabs-wrap {
   width: 100%;
   height: 100px;
-  border-top: 2px solid #d1c6af;
   overflow-x: hidden;
   overflow-y: auto;
+  background: #f7f9fa;
   display: flex;
   position: absolute;
   left: 0;

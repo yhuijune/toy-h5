@@ -19,6 +19,7 @@ export default defineComponent({
 <style scoped lang="scss">
 #container-wrap {
   height: calc(100vh - 100px);
+  background-color: #F3F5F7;
   overflow-x: hidden;
   overflow-y: auto;
 }
